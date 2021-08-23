@@ -119,7 +119,29 @@ div .header-logo {
   color: #fff;
 }
 .tiles {
+  min-width: 100vw;
   display:flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.timer-card {
+  background: rgba(19, 19, 19, 0.699);
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  min-height: 400px;
+  justify-content: center;
+  max-height: 100vh;
+}
+#timer-message {
+  margin-top: auto;
+}
+.pomo-timer {
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+.clock {
+  font-size: 2.5rem;
 }
