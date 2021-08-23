@@ -16,7 +16,7 @@ h1 {
 h4 {
   color: #FFF;
   margin-top: 0%;
-  margin-bottom: 4%;
+  margin-bottom: 6%;
 }
 div .App { 
   height: 100vh;
@@ -31,17 +31,15 @@ div .sign-in-ui{
   flex-direction: column;
 }
 .sign-in-out {
-  border: none;
+  border: 2px solid transparent;
   border-radius: 25px;
   color:#FFF;
   background: #38b6ff;
   padding: 6px 12px;
   cursor: pointer;
 }
-.sign-in-out :hover {
-  border: 15px #fff;
-  border-radius: 25px;
-  color:red;
+button#sign-in:hover {
+  border: 2px solid #fff;
 }
 div .header-logo {
   display:flex;
@@ -51,4 +49,64 @@ div .header-logo {
 .sign-in-image {
   padding-top: 20px;
   width: 75px;
+}
+.todo-card {
+  background: rgba(19, 19, 19, 0.699);
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  min-height: 400px;
+  justify-content: center;
+  max-height: 100vh;
+}
+#task-header {
+  margin-top:auto;
+}
+.todo-row-complete {
+  text-decoration: line-through;
+  opacity: 0.5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  background: rgb(20,23,210);
+  background: linear-gradient(53deg, rgba(20,23,210,1) 0%, rgba(56,182,255,1) 100%);
+}
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  background: rgb(20,23,210);
+  background: linear-gradient(53deg, rgba(20,23,210,1) 0%, rgba(56,182,255,1) 100%);
+  border-radius: 5px;
+}
+.delete-button {
+  cursor: pointer;
+  padding-right: 10px;
+}
+.todo-form {
+  padding-top: 10px;
+  padding-bottom: 15px;
+
+}
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#task-input {
+  border: rgba(20,23,210,1);
+  border-width: 3px;
+  border-radius: 5px;
+}
+.todo-button {
+  border:none;
 }

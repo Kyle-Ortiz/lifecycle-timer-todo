@@ -1,13 +1,11 @@
 import React from 'react'
-import {FaBars, FaGithub,FaLinkedin} from "react-icons/fa"
-import placeholder from "../placeholder.png"
-
+import {FaBars, FaGithub,FaLinkedin} from "react-icons/fa";
 function NavBar() {
      return (
           <nav>
                <div className="nav-center">
                     <div className="nav-header">
-                         <img clasName="logo" src={placeholder} alt="navBar logo" />
+                         <img clasName="logo" src="#" alt="navBar logo" />
                          <button className="nav-toggle">
                               <FaBars/>
                          </button>

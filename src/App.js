@@ -1,6 +1,6 @@
 import NavBar from "./Components/navBar"
 import Signin from "./Components/Signin";
-import SignOut from "./Components/SignOut"
+import Hub from "./Components/Hub.js"
 import {useAuthState} from "react-firebase-hooks/auth"
 import firebase from "./Config/firebase-config"
 import "./index.css"
@@ -10,7 +10,7 @@ function App() {
   const [user] = useAuthState(auth);
   return (
     <div className="App">
-      {user ? <SignOut auth={auth} /> : <Signin />}
+      {user ? <Hub auth={auth} /> : <Signin />}
     </div>
   );
 }

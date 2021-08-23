@@ -15,7 +15,7 @@ function Signin() {
                     <h1>Life Cycle</h1>
                </div>
                <h4>Your Productivity Hub</h4>
-               <button className="sign-in-out"onClick={handleSignIn}>Sign in with Google</button>
+               <button id="sign-in"className="sign-in-out"onClick={handleSignIn}>Sign in with Google</button>
           </div>
      )
 }
