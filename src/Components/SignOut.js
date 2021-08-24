@@ -1,16 +1,16 @@
-import React from 'react'
-import 'firebase/auth';
-import firebase from "../Config/firebase-config"
-import Pomodoro from './Pomodoro';
+// import React from 'react'
+// import 'firebase/auth';
+// import firebase from "../Config/firebase-config"
+// import Pomodoro from './Pomodoro';
 
 
-function SignOut(props) {
-     const auth=props.auth;
-     return auth.currentUser && (
-          <div className="signout">
-          <button className="sign-in-out" onClick={()=> auth.signOut()}>Sign Out</button>
-          </div>
-     )
-}
+// function SignOut(props) {
+//      const auth=props.auth;
+//      return auth.currentUser && (
+//           <div className="signout">
+//           <button className="sign-in-out" onClick={()=> auth.signOut()}>Sign Out</button>
+//           </div>
+//      )
+// }
 
-export default SignOut
+// export default SignOut

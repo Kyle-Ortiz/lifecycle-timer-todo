@@ -1,20 +1,20 @@
 import React from 'react'
 import ToDoList from './ToDoList';
-import SignOut from './SignOut';
+// import SignOut from './SignOut';
 import Pomodoro from './Pomodoro';
-import Calendar from './Calendar';
+// import Calendar from './Calendar';
 
-function Hub(props) {
-     const auth = props.auth;
+function Hub() {
+     // const auth = props.auth;
      return (
           <div className="dashboard">
                <div className="tiles">
                     <ToDoList />
                     <Pomodoro />
                </div>
-               <div className="signout">
+               {/* <div className="signout">
                     <SignOut auth={auth}/>
-               </div>
+               </div> */}
                
           </div>
      )

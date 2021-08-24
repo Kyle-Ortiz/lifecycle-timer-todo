@@ -13,7 +13,20 @@ function ToDoList() {
           }
 
           const newTodos = [todo, ...todos];
-
+          fetch('http://localhost:8000/tasks', {
+               method: 'POST',
+               headers: {
+                    'Content-Type': 'application/json',
+                    },
+               body: JSON.stringify(newTodos),
+               })
+               .then(response => response.json())
+               .then(data => {
+               console.log('Success:', data);
+               })
+               .catch((error) => {
+               console.error('Error:', error);
+          });
           setTodos(newTodos);
      }
      function completeTask(id) {
