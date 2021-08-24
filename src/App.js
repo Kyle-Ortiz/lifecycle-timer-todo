@@ -1,11 +1,9 @@
-import NavBar from "./Components/navBar"
 import Signin from "./Components/Signin";
 import Hub from "./Components/Hub.js"
 import {useAuthState} from "react-firebase-hooks/auth"
 import firebase from "./Config/firebase-config"
 import {Route, BrowserRouter as Router,Link,Switch, useHistory } from "react-router-dom";
 import "./index.css"
-import Calendar from "./Components/Calendar";
 import ToDoList from "./Components/ToDoList";
 import Pomodoro from "./Components/Pomodoro";
 import SignOut from "./Components/SignOut";
@@ -27,11 +25,15 @@ function App() {
       </Route>
       <Route path="/tasklist">
         <ToDoList /> 
-        <SignOut auth={auth} />
+        <div className="signout">
+          <SignOut auth={auth}/>
+        </div>
       </Route>
       <Route path="/timer">
         <Pomodoro /> 
-        <SignOut auth={auth}/>
+        <div className="signout">
+          <SignOut auth={auth}/>
+        </div>
       </Route>
       </Switch>
       : <Signin />}
