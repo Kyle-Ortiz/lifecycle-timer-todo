@@ -21,9 +21,6 @@ function App() {
       <Route path="/home">
         <Hub auth={auth} /> 
       </Route>
-      <Route path="/calendar">
-        <Calendar /> 
-      </Route>
       <Route path="/tasklist">
         <ToDoList /> 
       </Route>

@@ -90,9 +90,10 @@ div .header-logo {
   padding-right: 10px;
 }
 .todo-form {
+  display: flex;
   padding-top: 10px;
   padding-bottom: 15px;
-
+  justify-content: center;
 }
 .icons {
   display: flex;
@@ -108,10 +109,11 @@ div .header-logo {
   padding-bottom: 15px;
 }
 #task-input {
-  border-color: rgba(20,23,210,1);
-  border-width: 2px;
+  border: 2px solid rgba(20,23,210,1);
+  border-radius: 4px, 0 ,0, 4px;
   background: rgba(19, 19, 19, 0.699);
   color:#fff;
+  outline: none;
 }
 #task-input ::placeholder {
   color: #fff;
@@ -120,8 +122,11 @@ div .header-logo {
 
 .todo-button {
   border:none;
+  border-radius: 0% 5px 5px 0%;
   background: linear-gradient(53deg, rgba(20,23,210,1) 0%, rgba(56,182,255,1) 100%);
   color: #fff;
+  padding: 2px;
+  cursor: pointer;
 }
 .tiles {
   min-width: 100vw;
@@ -140,15 +145,20 @@ div .header-logo {
   max-height: 100vh;
 }
 #timer-message {
-  margin-top: auto;
+  margin-top: none;
 }
-.pomo-timer {
+.Pomo-timer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 300px;
 }
 .clock {
+  display: flex;
   font-size: 2.5rem;
+  align-items: center;
+  justify-content: center;
 }
 .signout {
   display: flex;

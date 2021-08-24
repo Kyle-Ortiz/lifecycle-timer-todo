@@ -9,7 +9,6 @@ function Hub(props) {
      return (
           <div className="dashboard">
                <div className="tiles">
-                    <Calendar />
                     <ToDoList />
                     <Pomodoro />
                </div>
