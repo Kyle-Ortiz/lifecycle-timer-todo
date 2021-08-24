@@ -1,9 +1,11 @@
 import React,{useState} from 'react';
 import ToDoForm from './ToDoForm';
 import ToDo from "./ToDo";
+import {useHistory} from "react-router-dom";
 
 function ToDoList() {
      const [todos,setTodos] = useState([]);
+     const history = useHistory();
 
      function addTask (todo) {
           if(!todo.text || /^\s*$/.test(todo.text)){
@@ -27,9 +29,12 @@ function ToDoList() {
      function removeTask (id) {
           setTodos([...todos].filter((task)=> task.id !== id))
      }
-
+     function dClickHandler(event) {
+          event.stopPropagation();
+          history.push("/tasklist");
+     }
      return (
-          <div className="todo-card">
+          <div onDoubleClick={(event)=> dClickHandler(event)}className="todo-card">
                <h1 id="task-header">What's on the Agenda?</h1>
                <ToDoForm onSubmit={addTask}/>
                <ToDo 

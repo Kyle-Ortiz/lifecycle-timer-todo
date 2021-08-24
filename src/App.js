@@ -3,7 +3,7 @@ import Signin from "./Components/Signin";
 import Hub from "./Components/Hub.js"
 import {useAuthState} from "react-firebase-hooks/auth"
 import firebase from "./Config/firebase-config"
-import {Route, BrowserRouter as Router,Link,Switch } from "react-router-dom";
+import {Route, BrowserRouter as Router,Link,Switch, useHistory } from "react-router-dom";
 import "./index.css"
 import Calendar from "./Components/Calendar";
 import ToDoList from "./Components/ToDoList";
@@ -13,9 +13,13 @@ import SignOut from "./Components/SignOut";
 function App() {
   const auth = firebase.auth();
   const [user] = useAuthState(auth);
+  const history = useHistory();
+
+  function dClickHandler() {
+    history.push("/home");
+  }
   return (
-    <Router>
-    <div className="App">
+    <div className="App" onDoubleClick={dClickHandler}>
       {user ? 
       <Switch>
       <Route path="/home">
@@ -23,6 +27,7 @@ function App() {
       </Route>
       <Route path="/tasklist">
         <ToDoList /> 
+        <SignOut auth={auth} />
       </Route>
       <Route path="/timer">
         <Pomodoro /> 
@@ -32,7 +37,6 @@ function App() {
       : <Signin />}
       
     </div>
-    </Router>
   );
 }
 

@@ -8,7 +8,7 @@ function SignOut(props) {
      const auth=props.auth;
      return auth.currentUser && (
           <div className="signout">
-          <button onClick={()=> auth.signOut()}>Sign Out</button>
+          <button className="sign-in-out" onClick={()=> auth.signOut()}>Sign Out</button>
           </div>
      )
 }

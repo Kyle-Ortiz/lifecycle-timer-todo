@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import {useHistory} from "react-router-dom"
 
 function Pomodoro() {
      const [minutes,setMinutes] = useState(25);
@@ -8,6 +9,13 @@ function Pomodoro() {
 
      const displayedMinutes = minutes < 10 ? `0${minutes}` : minutes;
      const displayedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+     const history = useHistory();
+
+     function dClickHandler(event) {
+          event.stopPropagation();
+          history.push("/timer");
+     }
      
      function timerStartHandler() {
           setTimerState(!timerState);
@@ -36,13 +44,15 @@ function Pomodoro() {
      }, [seconds,timerState])
      
      return (
-          <div className="timer-card">
+          <div className="timer-card" onDoubleClick={(event) => dClickHandler(event)}>
                <div className="Pomo-timer">
-                    {message ? <h2 id="timer-message">Break Time! New Session Starts in : </h2> : <h2 id="timer-message">Keep Working. You got this!</h2>}
+                    {message ? <h1 id="timer-message">Break Time! New Session Starts in : </h1> : <h1 id="timer-message">Keep Working. You got this!</h1>}
                     <div className="clock">
                     {displayedMinutes}:{displayedSeconds}
                     </div>
+                    <div>
                     <button className="timer-button" onClick={timerStartHandler}> {timerState ? "Stop timer" : "Start timer"}</button>
+                    </div>
                </div>
           </div>
      )
