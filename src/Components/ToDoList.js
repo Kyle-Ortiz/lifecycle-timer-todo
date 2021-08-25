@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import ToDoForm from './ToDoForm';
 import ToDo from "./ToDo";
 import {useHistory} from "react-router-dom";
@@ -7,18 +7,25 @@ function ToDoList() {
      const [todos,setTodos] = useState([]);
      const history = useHistory();
 
+     useEffect(() => {
+          fetch("http://localhost:8000/tasks")
+          .then((resp)=> resp.json()
+          .then((savedTodos)=> setTodos(savedTodos)))
+          
+     }, [])
      function addTask (todo) {
           if(!todo.text || /^\s*$/.test(todo.text)){
                return;
           }
 
           const newTodos = [todo, ...todos];
+          setTodos(newTodos);
           fetch('http://localhost:8000/tasks', {
                method: 'POST',
                headers: {
                     'Content-Type': 'application/json',
                     },
-               body: JSON.stringify(newTodos),
+               body: JSON.stringify(todo),
                })
                .then(response => response.json())
                .then(data => {
@@ -27,7 +34,6 @@ function ToDoList() {
                .catch((error) => {
                console.error('Error:', error);
           });
-          setTodos(newTodos);
      }
      function completeTask(id) {
           let updatedTodos = todos.map(todo => {
@@ -40,7 +46,16 @@ function ToDoList() {
      }
 
      function removeTask (id) {
-          setTodos([...todos].filter((task)=> task.id !== id))
+          setTodos([...todos].filter((task)=> task.id !== id));
+          fetch(`http://localhost:8000/tasks/${id}`, {
+               method: 'DELETE',})
+               .then(response => response.json())
+               .then(data => {
+               console.log('Success:', data);
+               })
+               .catch((error) => {
+               console.error('Error:', error);
+          });
      }
      function dClickHandler(event) {
           event.stopPropagation();
